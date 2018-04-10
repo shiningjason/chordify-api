@@ -4,6 +4,9 @@ const { send, createError } = require('micro')
 const REGEXP_UG_PAGE_CONTENT = /<script>\s*window\.UGAPP\.store\.page = (.*);\s*<\/script>/
 
 async function queryUgChordChartUrlByKeyword(keyword) {
+  if (!keyword) {
+    throw createError(400, 'Bad request, use `https://chordify.now.sh/{song-name}` to find chords')
+  }
   const url = `https://www.ultimate-guitar.com/search.php?search_type=title&value=${keyword}`
   const response = await fetch(url)
   const html = await response.text()
