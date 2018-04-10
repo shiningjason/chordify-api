@@ -1,0 +1,21 @@
+{
+  "name": "chordify-api",
+  "version": "1.0.0",
+  "author": "Jason Chung <shiningjason1989@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "micro",
+    "deploy": "now && now alias"
+  },
+  "now": {
+    "alias": "chordify",
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "public": true
+  },
+  "dependencies": {
+    "micro": "^9.1.4",
+    "node-fetch": "^2.1.2"
+  }
+}
